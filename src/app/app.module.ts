@@ -1,31 +1,36 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+//Modulos
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { CmxWebComponentsModule } from '@cmx-web-components/angular';
-import { ResetPasswordComponent } from './auth/pages/password/reset-password/reset-password.component';
-import { HttpClientModule } from '@angular/common/http';
-import { ComponentsModule } from './components/components.module';
-import { LoginComponent } from './auth/pages/login/login.component';
+import { AuthModule } from './auth/auth.module';
+import { SharedModule } from './shared/shared.module';
+import { PagesModule } from './pages/pages.module';
+
+// Componentes
+import { NotFoundComponent } from './not-found/not-found/not-found.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    ResetPasswordComponent,
-    LoginComponent,
+    NotFoundComponent,       
   ],
   imports: [
     HttpClientModule,
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
-    ComponentsModule,
-    ReactiveFormsModule,
+    AuthModule,
+    PagesModule,
+    SharedModule,
     CmxWebComponentsModule.forRoot()
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

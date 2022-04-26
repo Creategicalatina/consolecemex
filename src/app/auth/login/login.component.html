@@ -1,0 +1,22 @@
+
+<div slot="main" class="content-main-login">
+    <div>
+        <h2 class="title-login">Iniciar Sesión</h2>
+
+        <form (submit)="login()">
+            <cwc-grid class="demo-grid">
+                <cwc-cell colspan="12" mobile-colspan="12">
+                    <cwc-input label='Usuario' class='input-login' placeholder="Escribe tu correo electrónico"></cwc-input>
+                                 
+                    <cwc-input type='password' label='Contraseña' allow-password-show='true' class='input-login' placeholder="Escribe tu contraseña"></cwc-input>
+               
+                    <cwc-button (click)="login()" type="submit" class="btn-login" variant="primary-block" design-version="v2">Iniciar sesión</cwc-button>
+                </cwc-cell>
+            </cwc-grid>
+        </form>
+
+        <div class="content-reset-password">
+            <cwc-button variant="link">¿Has olvidado tu contraseña?</cwc-button>
+        </div>
+    </div>
+</div>

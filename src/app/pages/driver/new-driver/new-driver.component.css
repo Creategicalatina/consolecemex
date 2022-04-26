@@ -1,0 +1,15 @@
+/***  Estilos datos  ***/
+.input-new-driver {
+    width: 100%;
+}
+.input-check-driver {
+    margin-top: 5px;
+    margin-bottom: 1.4rem;
+}
+
+
+/***  Estilos cargar archivos  ***/
+.upload-file {
+    margin: 1rem 0;
+}
+

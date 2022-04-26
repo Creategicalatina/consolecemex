@@ -1,0 +1,74 @@
+/***  Estilos Generales  ***/
+.main-content-card {
+    padding: 1.5rem;
+    height: 110px;
+}
+span.style-title {
+    font-weight: 700;
+}
+
+
+/***  Estilos content basic info  ***/
+.content-basic-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.avatar-info {
+    display: flex;
+}
+span.name {
+    margin-left: 10px;
+}
+.col-attr-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+span.attr-user {
+    display: block;
+    font-weight: 700;
+}
+
+
+/***  Estilos content docs  ***/
+.content-docs {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.content-action-docs {
+    display: flex;
+    align-items: flex-end;
+}
+
+
+/***  Estilos content clever  ***/
+.content-btn-clever {
+    display: flex;
+    justify-content: flex-end;
+}
+span.text-clever {
+    display: block;
+    padding: 10px 0;
+}
+span.text-btn-clever {
+    padding: 0 1.5rem;
+}
+
+
+/***  Estilos para movil  ***/
+@media (max-width: 767.98px) { 
+    .main-content-card {
+        height: auto;
+    }    
+    .col-attr-info {
+        display: block;
+    }
+    .padding-contents {
+        padding: 1rem 0;
+    }
+    .content-docs {
+        display: block;
+    }
+}

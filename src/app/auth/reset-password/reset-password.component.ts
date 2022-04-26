@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { debounceTime } from 'rxjs/operators';
-import { ResetPasswordService } from '../../../../services/auth/reset-password.service';
+
+// Services
+import { ResetPasswordService } from './../../services/auth/reset-password.service';
 
 @Component({
   selector: 'app-reset-password',
