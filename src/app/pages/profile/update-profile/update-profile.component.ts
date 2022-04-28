@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-update-profile',
@@ -8,14 +9,53 @@ import { Router } from '@angular/router';
 })
 export class UpdateProfileComponent implements OnInit {
 
-  constructor( private router: Router ) { }
+  loading: boolean = false;
 
-  ngOnInit(): void {
+  formUserUpdate: FormGroup = this.formBuilder.group({
+    name: ['', [ Validators.required ]],
+    lastName: ['', [ Validators.required ]],
+    phone: ['', [ Validators.required ]],
+    email: ['', [ Validators.required ]],
+    identification: ['', [ Validators.required ]],
+    term: [false, [ Validators.requiredTrue ]]
+  });
+
+  constructor( 
+    private formBuilder: FormBuilder,
+    private router: Router ) { }
+
+  ngOnInit(): void { }
+
+  getStatusField( field: string ) {
+    console.log('field: ', field, 'form: ', this.formUserUpdate.controls[field])
+    if ( this.formUserUpdate.controls[field].errors && this.formUserUpdate.controls[field].touched ) return 'error';
+
+    return 'regular';
+  }
+
+  getMsgField( field: string, nameField: string ) {
+    let msgError = '';
+    
+    if ( this.formUserUpdate.controls[field].errors && this.formUserUpdate.controls[field].touched ) {
+      msgError = `El campo ${ nameField } es requerido.`;
+    }
+
+    return msgError;
   }
 
   UpdateProfile() {
     console.log('actualizar perfil...')
-    document.getElementById('modal-1').setAttribute('open', 'true')
+    if ( this.formUserUpdate.invalid ) {
+      this.formUserUpdate.markAllAsTouched();
+      return;
+    }
+
+    this.loading = true;
+    setTimeout(() => {
+      this.loading = false;
+      this.formUserUpdate.reset();
+      document.getElementById('modal-1').setAttribute('open', 'true');
+    }, 3000);
   }
 
   closeModal( event ) {

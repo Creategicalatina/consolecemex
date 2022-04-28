@@ -8,6 +8,9 @@ import { Router } from '@angular/router';
 })
 export class TabDriversComponent implements OnInit {
 
+  hasTrip: boolean = false;
+  showModalAppointment: boolean = false;
+
   constructor( private router: Router ) { }
 
   ngOnInit(): void {
@@ -25,6 +28,29 @@ export class TabDriversComponent implements OnInit {
 
   assignAppointment() {
     console.log('aqui asignamos una cita al driver...')
+    this.showModalAppointment = true;
+    document.getElementById('modal-assign-appointment').setAttribute('open', 'true')
+  }
+
+  assignAppointmentDriver() {
+    console.log('asingar viaje.....'); 
+    this.showModalAppointment = false;
+    document.getElementById('modal-assign-appointment').setAttribute('open', 'false')
+    document.getElementById('modal-confirm').setAttribute('open', 'true')
+  }
+
+  closeModalAssignAppointment( event ) {
+    this.showModalAppointment = false;
+    console.log('cerrar modal... ', event)  
+  }
+  closeModalConfirm( event ) {
+    this.hasTrip = true;
+    console.log('cerrar modal... ', event)
+  }
+
+  reviewTrip() {
+    console.log('Revisar viaje...'); 
+    this.router.navigateByUrl('dashboard/mis-viajes/detatalle');
   }
 
 }

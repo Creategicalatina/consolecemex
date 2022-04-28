@@ -5,7 +5,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ReactiveFormsModule } from '@angular/forms';
 
 import { CmxWebComponentsModule } from '@cmx-web-components/angular';
 import { AuthModule } from './auth/auth.module';
@@ -23,7 +22,6 @@ import { NotFoundComponent } from './not-found/not-found/not-found.component';
   ],
   imports: [
     HttpClientModule,
-    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     AuthModule,

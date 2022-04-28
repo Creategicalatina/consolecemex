@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-// Componentes
+// Guard
+import { AuthGuard } from '../guards/auth.guard';
+
+// Components
 import { PagesComponent } from './pages.component';
 
 
@@ -9,7 +12,7 @@ const routes: Routes = [
     { 
         path: 'dashboard', 
         component: PagesComponent, 
-        //canActivate: [ AuthGuard ],
+        canActivate: [ AuthGuard ],
         //canLoad: [ AuthGuard ],
         loadChildren: () => import('./child-routes.module').then( m => m.ChildRoutesModule )
        // children: [

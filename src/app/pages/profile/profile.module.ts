@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-// Components
+// Modules
+import { ReactiveFormsModule } from '@angular/forms';
 import { CmxWebComponentsModule } from '@cmx-web-components/angular';
+
+// Components
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { UpdateDocumentsComponent } from './update-documents/update-documents.component';
 
@@ -19,6 +22,7 @@ import { UpdateDocumentsComponent } from './update-documents/update-documents.co
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     CmxWebComponentsModule.forRoot(),
   ]
 })

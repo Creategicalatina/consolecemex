@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // Modulos
+import { ReactiveFormsModule } from '@angular/forms';
 import { CmxWebComponentsModule } from '@cmx-web-components/angular';
 
 // Componentes
@@ -28,6 +29,7 @@ import { UploadFilesComponent } from '../components/upload-files/upload-files.co
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     CmxWebComponentsModule.forRoot(),
   ]
 })

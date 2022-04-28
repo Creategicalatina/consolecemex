@@ -32,13 +32,6 @@ span.name-driver {
     justify-content: space-around;
     margin-top: 1rem;
 }
-span.btn-edit {
-    cursor: pointer;
-    color: #757f8c;
-}
-span.btn-edit:hover {
-    color: #7ac943;
-}
 
 
 /*** Estilos card papeleria  ***/
@@ -58,9 +51,26 @@ h3.number-dirvers {
 }
 
 
+/*** Estilos modal asignar cita  ***/ 
+.content-info-modal {
+    text-align: center;
+    padding: 0 8rem;
+}
+.input-select {
+    width: 100%;
+    text-align: left;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+
 /*** Estilos para moviles  ***/
 @media (max-width: 767.98px) { 
     .padding-cards {
         height: auto;
+    }
+
+    .content-info-modal {
+        padding: 0;
     }
 }

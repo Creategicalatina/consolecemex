@@ -3,14 +3,32 @@
     <div>
         <h2 class="title-login">Iniciar Sesión</h2>
 
-        <form (submit)="login()">
+        <form [formGroup]="formLogin" (submit)="onSubmit()">
             <cwc-grid class="demo-grid">
                 <cwc-cell colspan="12" mobile-colspan="12">
-                    <cwc-input label='Usuario' class='input-login' placeholder="Escribe tu correo electrónico"></cwc-input>
+                    <cwc-input 
+                        formControlName="user"
+                        [status]="getStatusField('user')"
+                        [statusMessage]="getMsgField('user', 'usuario')"
+                        type="email"
+                        label='Usuario' 
+                        class='input-login'
+                        placeholder="Escribe tu correo electrónico"></cwc-input>
                                  
-                    <cwc-input type='password' label='Contraseña' allow-password-show='true' class='input-login' placeholder="Escribe tu contraseña"></cwc-input>
-               
-                    <cwc-button (click)="login()" type="submit" class="btn-login" variant="primary-block" design-version="v2">Iniciar sesión</cwc-button>
+                    <cwc-input 
+                        formControlName="password"
+                        [status]="getStatusField('password')"
+                        [statusMessage]="getMsgField('password', 'contraseña')"
+                        type='password' 
+                        label='Contraseña' 
+                        allow-password-show='true' 
+                        class='input-login' 
+                        placeholder="Escribe tu contraseña"></cwc-input>
+              
+                    <cwc-button     
+                        (click)="onSubmit()" 
+                        variant="primary-block" 
+                        design-version="v2">Iniciar sesión</cwc-button>
                 </cwc-cell>
             </cwc-grid>
         </form>
@@ -20,3 +38,11 @@
         </div>
     </div>
 </div>
+
+<!-- Content loanding -->
+<div *ngIf="loading" class="loading-content">
+    <cwc-loader>
+        <span slot='loading'>Espere un momento...</span>
+    </cwc-loader>
+</div>
+

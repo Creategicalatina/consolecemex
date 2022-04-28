@@ -27,7 +27,7 @@
                
                 <div class="content-edilt">
                     <span>Logísticos S.A. de C.V.</span> 
-                    <span (click)="editarDriver()" class="btn-edit">Editar</span>
+                    <cwc-button (click)="editarDriver()" variant="link">Editar</cwc-button>
                 </div>
             </div>
         </cwc-card>
@@ -68,10 +68,11 @@
                         </div>
                     </cwc-cell>
                     <cwc-cell class="action-column" colspan="3" mobile-colspan="12">
-                        <span (click)="updateDocsDriver()" class="btn-edit">Actualizar Documentos</span> 
+                        <cwc-button (click)="updateDocsDriver()" variant="link">Actualizar Documentos</cwc-button>
                     </cwc-cell>
                     <cwc-cell class="action-column" colspan="3" mobile-colspan="12">
-                        <cwc-button (click)="assignAppointment()" designVersion="v2" variant='primary'>Asignar cita</cwc-button>
+                        <cwc-button *ngIf="!hasTrip" (click)="assignAppointment()" designVersion="v2" variant='primary'>Asignar cita</cwc-button>
+                        <cwc-button *ngIf="hasTrip" (click)="reviewTrip()" designVersion="v2" variant='primary'>Revisar viaje</cwc-button>
                     </cwc-cell>
                 </cwc-grid>
             </div>
@@ -169,3 +170,29 @@
         </table>        
     </cwc-table-wrapper>
 </div>
+
+
+<!-- Modal asignar cita -->
+<cwc-modal id='modal-assign-appointment' (cwcClose)="closeModalAssignAppointment($event)" width="200px">
+    <div *ngIf="showModalAppointment" class="content-info-modal">
+        <h3 class='modal--confirmation__message'>Asignar cita</h3>
+
+        <cwc-picker class="picker input-select" label="" placeholder="Seleccionar">
+            <option value="1">Viaje 23456246, 7:30 am</option>
+            <option value="2">Viaje 23456246, 8:30 am</option>
+            <option value="3">Viaje 23456246, 9:30 am</option>
+            <option value="4">Viaje 23456246, 10:30 am</option>
+        </cwc-picker>
+
+        <cwc-button (click)="assignAppointmentDriver()" type="submit" variant="primary-block" design-version="v2">Aceptar</cwc-button>
+    </div>
+</cwc-modal>
+
+
+<!-- Confirmational modal -->
+<cwc-modal id='modal-confirm' (cwcClose)="closeModalConfirm($event)">
+    <div style='text-align: center'>
+        <cwc-icon name='accepted-ok' size='120px' color='bright-green'></cwc-icon>
+        <h3 class='modal--confirmation__message'>La cita ha sido asignada de manera exitosa.</h3>
+    </div>
+</cwc-modal>

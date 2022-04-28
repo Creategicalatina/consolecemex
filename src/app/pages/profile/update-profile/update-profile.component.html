@@ -2,21 +2,65 @@
     <cwc-cell colspan="5" mobile-colspan="12">
         <h2 class="title-form">Editar información</h2>
 
-        <form>
-            <cwc-input label='Nombre(s)' value='' class='input-update-profile' placeholder="Escribe tu Nombre"></cwc-input>
+        <form [formGroup]="formUserUpdate" (submit)="UpdateProfile()">
+            <cwc-input 
+                formControlName="name"
+                [status]="getStatusField('name')"
+                [statusMessage]="getMsgField('name', 'nombre(s)')"
+                required="true"
+                label='Nombre(s)' 
+                class='input-update-profile' 
+                placeholder="Escribe tu Nombre"></cwc-input>
 
-            <cwc-input label='Apellidos' value='' class='input-update-profile' placeholder="Apellido paterno y materno"></cwc-input>
+            <cwc-input 
+                formControlName="lastName"
+                [status]="getStatusField('lastName')"
+                [statusMessage]="getMsgField('lastName', 'apellidos')"
+                required="true"
+                label='Apellidos' 
+                class='input-update-profile' 
+                placeholder="Apellido paterno y materno"></cwc-input>
             
-            <cwc-input label='Número de celular' value='' class='input-update-profile' placeholder="Agrega un número de telefono"></cwc-input>
+            <cwc-input
+                formControlName="phone"
+                [status]="getStatusField('phone')"
+                [statusMessage]="getMsgField('phone', 'número de celular')" 
+                required="true"
+                label='Número de celular' 
+                class='input-update-profile' 
+                placeholder="Agrega un número de telefono"></cwc-input>
             
-            <cwc-input label='Correo electrónico' value='' class='input-update-profile' placeholder="Agrega tu correo electrónico"></cwc-input>
+            <cwc-input
+                formControlName="email"
+                [status]="getStatusField('email')"
+                [statusMessage]="getMsgField('email', 'correo electrónico')" 
+                type="email"
+                required="true"
+                label='Correo electrónico' 
+                class='input-update-profile' 
+                placeholder="Agrega tu correo electrónico"></cwc-input>
             
-            <cwc-input label='NIT o CC' value='' class='input-update-profile' placeholder="Escribir números sin guiones ni espacios"></cwc-input>
+            <cwc-input
+                formControlName="identification"
+                [status]="getStatusField('identification')"
+                [statusMessage]="getMsgField('identification', 'NIT o CC')" 
+                required="true"
+                label='NIT o CC' 
+                class='input-update-profile' 
+                placeholder="Escribir números sin guiones ni espacios"></cwc-input>
             
-            <cwc-checkbox checked required class='m-end-sm input-check-update-profile'>Confirmo que la siguiente información es verdadera. </cwc-checkbox>
+            <cwc-checkbox 
+                formControlName="term"
+                [status]="getStatusField('term')"
+                required="true"
+                class='m-end-sm input-check-update-profile'>Confirmo que la siguiente información es verdadera. </cwc-checkbox>
 
-            <cwc-button (click)="UpdateProfile()" type="submit" variant="primary-block" design-version="v2">Guardar cambios</cwc-button>
+            <cwc-button 
+                (click)="UpdateProfile()" 
+                variant="primary-block" 
+                design-version="v2">Guardar cambios</cwc-button>
         </form>
+        
     </cwc-cell>
 </cwc-grid>
 
@@ -27,3 +71,10 @@
         <h3 class='modal--confirmation__message'>Los cambios han sido guardados exitosamente.</h3>
     </div>
 </cwc-modal>
+
+<!-- Content loanding -->
+<div *ngIf="loading" class="loading-content">
+    <cwc-loader>
+        <span slot='loading'>Espere un momento...</span>
+    </cwc-loader>
+</div>

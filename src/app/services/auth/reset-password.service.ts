@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Router } from '@angular/router';
 
-const URL = environment.urlapi
+const URL = environment.urlApi
 
 @Injectable({
   providedIn: 'root'

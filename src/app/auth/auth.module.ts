@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // Modulos
 import { CmxWebComponentsModule } from '@cmx-web-components/angular';
@@ -23,6 +24,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
   imports: [
     CommonModule,
     ComponentsModule,
+    ReactiveFormsModule,
     CmxWebComponentsModule.forRoot()
   ]
 })

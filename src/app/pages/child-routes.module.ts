@@ -3,7 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Componentes
 import { DashboardComponent } from './dashboard/dashboard.component';
+
 import { MyTravelsComponent } from './my-travels/my-travels.component';
+import { TripDetailsComponent } from './my-travels/trip-details/trip-details.component';
 
 import { DriverComponent } from './driver/driver.component';
 import { NewDriverComponent } from './driver/new-driver/new-driver.component';
@@ -21,6 +23,7 @@ const childRoutes: Routes = [
   { path: '', component: DashboardComponent, data: { title: 'Dashboard' } },
 
   { path: 'mis-viajes', component: MyTravelsComponent, data: { title: 'Mis viajes' } },
+  { path: 'mis-viajes/detatalle', component: TripDetailsComponent, data: { title: 'Detalle del viaje' } },
 
   { path: 'driver', component: DriverComponent, data: { title: 'Driver' } },
   { path: 'driver/agregar-conductor', component: NewDriverComponent, data: { title: 'Agregar conductor' } },

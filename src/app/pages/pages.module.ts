@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // Modulos
+import { CmxWebComponentsModule } from '@cmx-web-components/angular';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { DriverModule } from './driver/driver.module';
 import { ProfileModule } from './profile/profile.module';
-import { CmxWebComponentsModule } from '@cmx-web-components/angular';
 
 // Componentes
 import { PagesComponent } from './pages.component';
