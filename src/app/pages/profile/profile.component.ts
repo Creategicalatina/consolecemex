@@ -18,9 +18,13 @@ export class ProfileComponent implements OnInit {
     this.router.navigateByUrl('dashboard/perfil/actualizar-perfil');
   }
 
-  updateDocuments() {
+  /* updateDocuments() {
     console.log('Actualizar los documentos....');
     this.router.navigateByUrl('dashboard/perfil/actualizar-documentos');
+  } */
+
+  yourTripCemex() {
+    console.log('Ir a a tu viaje CEMEX....');     
   }
 
   goCleverGlobal() {

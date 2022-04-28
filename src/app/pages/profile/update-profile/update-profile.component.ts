@@ -27,7 +27,6 @@ export class UpdateProfileComponent implements OnInit {
   ngOnInit(): void { }
 
   getStatusField( field: string ) {
-    console.log('field: ', field, 'form: ', this.formUserUpdate.controls[field])
     if ( this.formUserUpdate.controls[field].errors && this.formUserUpdate.controls[field].touched ) return 'error';
 
     return 'regular';
@@ -41,6 +40,10 @@ export class UpdateProfileComponent implements OnInit {
     }
 
     return msgError;
+  }
+
+  goProfile() {
+    this.router.navigateByUrl('/dashboard/perfil');
   }
 
   UpdateProfile() {

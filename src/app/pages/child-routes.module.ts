@@ -7,6 +7,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MyTravelsComponent } from './my-travels/my-travels.component';
 import { TripDetailsComponent } from './my-travels/trip-details/trip-details.component';
 
+import { UsersComponent } from './users/users.component';
+
 import { DriverComponent } from './driver/driver.component';
 import { NewDriverComponent } from './driver/new-driver/new-driver.component';
 import { UpdateDriverComponent } from './driver/update-driver/update-driver.component';
@@ -14,8 +16,11 @@ import { UpdateDocumentsDriverComponent } from './driver/update-documents-driver
 
 import { VehiclesComponent } from './vehicles/vehicles.component';
 
+import { CompaniesComponent } from './companies/companies.component';
+
+import { WaitingListComponent } from './waiting-list/waiting-list.component';
+
 import { ProfileComponent } from './profile/profile.component';
-import { UpdateDocumentsComponent } from './profile/update-documents/update-documents.component';
 import { UpdateProfileComponent } from './profile/update-profile/update-profile.component';
 
 
@@ -24,6 +29,8 @@ const childRoutes: Routes = [
 
   { path: 'mis-viajes', component: MyTravelsComponent, data: { title: 'Mis viajes' } },
   { path: 'mis-viajes/detatalle', component: TripDetailsComponent, data: { title: 'Detalle del viaje' } },
+  
+  { path: 'usuarios', component: UsersComponent, data: { title: 'Usuarios' } },
 
   { path: 'driver', component: DriverComponent, data: { title: 'Driver' } },
   { path: 'driver/agregar-conductor', component: NewDriverComponent, data: { title: 'Agregar conductor' } },
@@ -31,10 +38,14 @@ const childRoutes: Routes = [
   { path: 'driver/actualizar-documentos', component: UpdateDocumentsDriverComponent, data: { title: 'Actualizar documentos' } },
 
   { path: 'vehiculos', component: VehiclesComponent, data: { title: 'Vehículos' } },
+
+  { path: 'empresas', component: CompaniesComponent, data: { title: 'Empresas' } },
+
+  { path: 'lista-de-espera', component: WaitingListComponent, data: { title: 'Lista de espera' } },
   
   { path: 'perfil', component: ProfileComponent, data: { title: 'Perfil' } },
-  { path: 'perfil/actualizar-documentos', component: UpdateDocumentsComponent, data: { title: 'Actualizar documentos' } },
   { path: 'perfil/actualizar-perfil', component: UpdateProfileComponent, data: { title: 'Actualizar Perfil' } },
+  /* { path: 'perfil/actualizar-documentos', component: UpdateDocumentsComponent, data: { title: 'Actualizar documentos' } }, */
 ];
 
 

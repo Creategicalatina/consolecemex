@@ -1,5 +1,6 @@
 <cwc-grid class="demo-grid">
     <cwc-cell colspan="5" mobile-colspan="12">
+        <cwc-button (click)="goProfile()" variant="link" leading-icon="arrow-left-single">Perfil</cwc-button>
         <h2 class="title-form">Editar información</h2>
 
         <form [formGroup]="formUserUpdate" (submit)="UpdateProfile()">
@@ -28,7 +29,7 @@
                 required="true"
                 label='Número de celular' 
                 class='input-update-profile' 
-                placeholder="Agrega un número de telefono"></cwc-input>
+                placeholder="Agrega un número de teléfono"></cwc-input>
             
             <cwc-input
                 formControlName="email"
