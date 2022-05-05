@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { CmxWebComponentsModule } from '@cmx-web-components/angular';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
+import { UsersModule } from './users/users.module';
 import { DriverModule } from './driver/driver.module';
 import { ProfileModule } from './profile/profile.module';
 
@@ -14,8 +15,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MyTravelsComponent } from './my-travels/my-travels.component';
 import { DriverComponent } from './driver/driver.component';
 import { VehiclesComponent } from './vehicles/vehicles.component';
-import { ProfileComponent } from './profile/profile.component';
-
 
 
 @NgModule({
@@ -25,7 +24,6 @@ import { ProfileComponent } from './profile/profile.component';
     DriverComponent,
     MyTravelsComponent,
     VehiclesComponent,
-    ProfileComponent,
   ],
   exports: [
     PagesComponent,
@@ -36,6 +34,7 @@ import { ProfileComponent } from './profile/profile.component';
     CommonModule,
     RouterModule,
     SharedModule,
+    UsersModule,
     DriverModule,
     ProfileModule,
     CmxWebComponentsModule.forRoot()

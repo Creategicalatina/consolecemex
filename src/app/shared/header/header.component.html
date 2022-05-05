@@ -2,7 +2,9 @@
     <cwc-overlay min-width="300px" variant="popover" height="286px">
         <div slot="target" class="flex flex__align--center m-end-xs">
             <cwc-button variant="link" leading-icon="notification" white size="medium" class="m-end-xs">Notificaciones</cwc-button>
-            <div class="display-inline-block p-all-xs border-radius--circle bg--true-red" style="width: 1rem; height: 1rem; text-align: center; line-height: 1rem;">2</div>
+            <!-- <cwc-button variant="link" leading-icon="notification" white size="medium" class="m-end-xs">Notificaciones</cwc-button> -->
+            <!-- <div class="display-inline-block p-all-xs border-radius--circle bg--true-red" 
+            style="width: 1rem; height: 1rem; text-align: center; line-height: 1rem;">2</div> -->
         </div>
 
         <div slot="content">
@@ -36,13 +38,17 @@
         </div>
     </cwc-overlay>
     
-    <div (click)="goProfile()" class="content-avatar-profile">
-        <!-- <cwc-avatar size="small" variant="positive" name="Michael Wasserman" class="m-h-xs"></cwc-avatar> -->
+    <div (click)="goProfile()" class="content-avatar-profile">        
         <cwc-avatar 
+            *ngIf="photoUser; else noContent"
             size="small"
             image-source="https://scstdcnxdsld01.z21.web.core.windows.net/dls/assets/samples/images/uploaded-picture-2.jpg"
             name="Michael Wasserman"
             class="m-h-xs"
         ></cwc-avatar>
+
+        <ng-template #noContent>
+            <cwc-avatar size="small" variant="positive" [name]="fullNameUser" class="m-h-xs"></cwc-avatar>
+        </ng-template>
     </div>    
 </cwc-header>  

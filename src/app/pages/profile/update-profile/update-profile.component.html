@@ -5,9 +5,9 @@
 
         <form [formGroup]="formUserUpdate" (submit)="UpdateProfile()">
             <cwc-input 
-                formControlName="name"
-                [status]="getStatusField('name')"
-                [statusMessage]="getMsgField('name', 'nombre(s)')"
+                formControlName="firstName"
+                [status]="getStatusField('firstName')"
+                [statusMessage]="getMsgField('firstName', 'nombre(s)')"
                 required="true"
                 label='Nombre(s)' 
                 class='input-update-profile' 
@@ -23,9 +23,9 @@
                 placeholder="Apellido paterno y materno"></cwc-input>
             
             <cwc-input
-                formControlName="phone"
-                [status]="getStatusField('phone')"
-                [statusMessage]="getMsgField('phone', 'número de celular')" 
+                formControlName="phoneNumber"
+                [status]="getStatusField('phoneNumber')"
+                [statusMessage]="getMsgField('phoneNumber', 'número de celular')" 
                 required="true"
                 label='Número de celular' 
                 class='input-update-profile' 
@@ -42,9 +42,9 @@
                 placeholder="Agrega tu correo electrónico"></cwc-input>
             
             <cwc-input
-                formControlName="identification"
-                [status]="getStatusField('identification')"
-                [statusMessage]="getMsgField('identification', 'NIT o CC')" 
+                formControlName="document"
+                [status]="getStatusField('document')"
+                [statusMessage]="getMsgField('document', 'NIT o CC')" 
                 required="true"
                 label='NIT o CC' 
                 class='input-update-profile' 
@@ -65,13 +65,15 @@
     </cwc-cell>
 </cwc-grid>
 
+
 <!-- Confirmational modal -->
-<cwc-modal id='modal-1' (cwcClose)="closeModal($event)">
+<cwc-modal id='modal-confirm-update' (cwcClose)="closeModal($event)">
     <div style='text-align: center'>
         <cwc-icon name='accepted-ok' size='120px' color='bright-green'></cwc-icon>
         <h3 class='modal--confirmation__message'>Los cambios han sido guardados exitosamente.</h3>
     </div>
 </cwc-modal>
+
 
 <!-- Content loanding -->
 <div *ngIf="loading" class="loading-content">

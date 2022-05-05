@@ -1,0 +1,19 @@
+<cwc-grid class="demo-grid">
+    <cwc-cell colspan="5" mobile-colspan="12">
+        <cwc-button (click)="goUsers()" variant="link" leading-icon="arrow-left-single">Usuarios</cwc-button>
+        <h2 class="title-profile">Agregar usuario</h2>
+
+        <div *ngIf="listRoles.length; else noContent">
+            <cwc-radio-group (cwcChange)="changeRol($event)" name='heroes'>
+                <ng-container *ngFor="let rol of listRoles">
+                    <cwc-radio [value]='rol.name' class="input-radio">{{ labelRol(rol.name) }}</cwc-radio>
+                </ng-container>
+            </cwc-radio-group>
+
+            <cwc-button                 
+                variant="primary-block" 
+                design-version="v2">Siguiente</cwc-button>
+        </div>
+        <ng-template #noContent> No hay roles disponibles. </ng-template>
+    </cwc-cell>
+</cwc-grid>

@@ -11,7 +11,6 @@ import { TabRequestComponent } from './components/tab-request/tab-request.compon
 import { NewDriverComponent } from './new-driver/new-driver.component';
 import { UpdateDriverComponent } from './update-driver/update-driver.component';
 import { UpdateDocumentsDriverComponent } from './update-documents-driver/update-documents-driver.component';
-import { UploadFilesComponent } from '../components/upload-files/upload-files.component';
 
 
 @NgModule({
@@ -21,7 +20,6 @@ import { UploadFilesComponent } from '../components/upload-files/upload-files.co
     NewDriverComponent,
     UpdateDriverComponent,
     UpdateDocumentsDriverComponent,
-    UploadFilesComponent,
   ],
   exports: [
     TabDriversComponent,

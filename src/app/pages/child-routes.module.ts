@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+// Modules
+import { UsersRoutingModule } from './users/users.routing';
+
 // Componentes
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { MyTravelsComponent } from './my-travels/my-travels.component';
 import { TripDetailsComponent } from './my-travels/trip-details/trip-details.component';
-
-import { UsersComponent } from './users/users.component';
 
 import { DriverComponent } from './driver/driver.component';
 import { NewDriverComponent } from './driver/new-driver/new-driver.component';
@@ -24,14 +25,15 @@ import { ProfileComponent } from './profile/profile.component';
 import { UpdateProfileComponent } from './profile/update-profile/update-profile.component';
 
 
+
 const childRoutes: Routes = [
   { path: '', component: DashboardComponent, data: { title: 'Dashboard' } },
 
   { path: 'mis-viajes', component: MyTravelsComponent, data: { title: 'Mis viajes' } },
   { path: 'mis-viajes/detatalle', component: TripDetailsComponent, data: { title: 'Detalle del viaje' } },
-  
-  { path: 'usuarios', component: UsersComponent, data: { title: 'Usuarios' } },
 
+  // path: '/usuarios' => UsersRoutingModule  
+  
   { path: 'driver', component: DriverComponent, data: { title: 'Driver' } },
   { path: 'driver/agregar-conductor', component: NewDriverComponent, data: { title: 'Agregar conductor' } },
   { path: 'driver/actualizar-conductor', component: UpdateDriverComponent, data: { title: 'Actualizar conductor' } },
@@ -50,7 +52,10 @@ const childRoutes: Routes = [
 
 
 @NgModule({
-  imports: [ RouterModule.forChild(childRoutes) ],
+  imports: [ 
+    RouterModule.forChild(childRoutes),
+    UsersRoutingModule,
+  ],
   exports: [ RouterModule ]
 })
 export class ChildRoutesModule { }

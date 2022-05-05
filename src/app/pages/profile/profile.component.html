@@ -8,16 +8,21 @@
         <cwc-card class="m-all-xs" design-version="v2">
             <div class="main-content-card">
                 <div class="avatar-info">
-                    <!-- <cwc-avatar size="small" variant="positive" name="Michael Wasserman" class="m-h-xs"></cwc-avatar> -->
-                    <cwc-avatar 
-                        size="small"
-                        image-source="https://scstdcnxdsld01.z21.web.core.windows.net/dls/assets/samples/images/uploaded-picture-2.jpg"
-                        name="Michael Wasserman"
-                        class="m-h-xs"
-                    ></cwc-avatar>
-                    <span class="style-title name">Eduardo Castillo López</span>
-                </div>    
-
+                    <div>
+                        <cwc-avatar 
+                            *ngIf="currentUser.photo; else noContent"
+                            size="small"
+                            image-source="https://scstdcnxdsld01.z21.web.core.windows.net/dls/assets/samples/images/uploaded-picture-2.jpg"
+                            name="Michael Wasserman"
+                            class="m-h-xs"
+                        ></cwc-avatar>
+                        <ng-template #noContent>
+                            <cwc-avatar size="small" variant="negative" [name]="currentUser.fullName" class="m-h-xs"></cwc-avatar>
+                        </ng-template>
+                    </div>
+                    <span class="style-title name">{{ currentUser.fullName }}</span>
+                </div>  
+                
                 <hr>
 
                 <cwc-grid class="demo-grid" >
@@ -25,11 +30,11 @@
                         <div class="col-attr-info">
                             <div>
                                 <span class="attr-user">Celular</span>
-                                <span>3001234567</span>
+                                <span>{{ currentUser.phoneNumber }}</span>
                             </div>
                             <div class="padding-contents">
                                 <span class="attr-user">Correo electrónico</span>
-                                <span>eduardo.castillo@gmail.com</span>
+                                <span>{{ currentUser.email }}</span>
                             </div>                            
                         </div>
                     </cwc-cell>
@@ -40,7 +45,7 @@
                         <div class="col-attr-info">                            
                             <div>
                                 <span class="attr-user">NIT o CC</span>
-                                <span>1234567890</span>
+                                <span>{{ currentUser.document }}</span>
                             </div>
                             <div class="content-btn-edit padding-contents">
                                 <cwc-button (click)="updateInfoUser()" variant="link">Editar</cwc-button>
